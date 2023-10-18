@@ -1,0 +1,54 @@
+{%extends 'index.html'%}
+
+{%block title%}
+    Instructors
+{%endblock%}
+
+{%block home%}
+     class="nav-item"
+{%endblock%}
+
+{%block instructor%}
+     class="nav-item active"
+{%endblock%}
+
+{%block content%}
+<div class="col-md-12">
+	<form method="post" class="card">
+		{%csrf_token%}
+		<div class="card-header">
+			<div class="card-title">Add Instructor</div>
+		</div>
+		<div class="card-body">
+			{{form.as_p}}
+<!--			<div class="form-group">-->
+<!--				<label for="id">Instructor ID</label>-->
+<!--				<input type="number" class="form-control" id="id" name="id" placeholder="Instructor ID" required>-->
+<!--			</div>-->
+
+<!--			<div class="form-group">-->
+<!--				<label for="name">Instructor Name</label>-->
+<!--				<input type="text" class="form-control" id="name" name="name" placeholder="Instructor Name">-->
+<!--			</div>-->
+
+<!--			<div class="form-group">-->
+<!--				<label for="birth_date">Birth date</label>-->
+<!--				<input type="date" class="form-control" id="birth_date" name="birth_date">-->
+<!--			</div>-->
+
+<!--			<div class="form-group">-->
+<!--				<label for="salary">Salary</label>-->
+<!--				<input type="number" class="form-control" id="salary" name="salary" placeholder="Salary">-->
+<!--			</div>-->
+
+<!--			<div class="form-group">-->
+<!--				<label for="track">Track ID</label>-->
+<!--				<input type="number" class="form-control" id="track" name="track" placeholder="Track ID">-->
+<!--			</div>-->
+		</div>
+		<div class="card-action">
+			<input type="submit" value="submit" class="btn btn-primary">
+		</div>
+	</form>
+</div>
+{%endblock%}

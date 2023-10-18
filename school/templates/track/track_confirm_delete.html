@@ -1,0 +1,45 @@
+{%extends 'index.html'%}
+
+{%block title%}
+    Tracks
+{%endblock%}
+
+{%block home%}
+     class="nav-item"
+{%endblock%}
+
+{%block track%}
+     class="nav-item active"
+{%endblock%}
+
+{%block search%}
+<form class="navbar-left navbar-form nav-search my-2" method="post">
+    {%csrf_token%}
+    <div class="input-group">
+        <input type="text" name="search" value="{{value}}" placeholder="Search ..." class="form-control">
+        <div class="input-group-append">
+            <button type="submit" class="input-group-text">
+                <i class="la la-search search-icon"></i>
+            </button>
+        </div>
+    </div>
+</form>
+{%endblock%}
+
+{%block content%}
+<div class="col-md-12">
+	<form method="post" class="card">
+		{%csrf_token%}
+		<div class="card-header">
+			<div class="card-title">Delete Track</div>
+		</div>
+		<div class="card-body">
+            <p>Are you sure you want to delete "{{ object }}" track ?</p>
+		</div>
+		<div class="card-action">
+			<input type="submit" value="Delete" class="btn btn-primary">
+            <a class="btn btn-outline-primary" href="{%url 'list.tracks'%}">Cancel </a>
+		</div>
+	</form>
+</div>
+{%endblock%}

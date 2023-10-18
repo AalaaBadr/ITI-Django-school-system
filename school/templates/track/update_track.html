@@ -1,0 +1,39 @@
+{%extends 'index.html'%}
+
+{%block title%}
+    Tracks
+{%endblock%}
+
+{%block home%}
+     class="nav-item"
+{%endblock%}
+
+{%block track%}
+     class="nav-item active"
+{%endblock%}
+
+{%block content%}
+<div class="col-md-12">
+	<form method="post" class="card">
+		{%csrf_token%}
+		<div class="card-header">
+			<div class="card-title">Update Track</div>
+		</div>
+		<div class="card-body">
+
+			<div class="form-group">
+				<label for="id">Track ID</label>
+				<input type="number" class="form-control" id="id" name="id" placeholder="Track ID" value="{{old_data.id}}">
+			</div>
+
+			<div class="form-group">
+				<label for="name">Track Name</label>
+				<input type="text" class="form-control" id="name" name="name" placeholder="Enter Track Name" required value="{{old_data.name}}">
+			</div>
+		</div>
+		<div class="card-action">
+			<input type="submit" value="submit" class="btn btn-primary">
+		</div>
+	</form>
+</div>
+{%endblock%}

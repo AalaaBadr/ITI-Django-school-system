@@ -1,0 +1,26 @@
+{%extends 'index.html'%}
+
+{%block title%}
+    Login
+{%endblock%}
+
+
+{%block content%}
+<div class="col-md-12">
+	<form method="post" class="card">
+		{%csrf_token%}
+		<div class="card-header">
+			<div class="card-title">Login</div>
+		</div>
+		<div class="card-body">
+			{{form.as_p}}
+		</div>
+		<div class="card-action">
+			<input type="submit" value="Login" class="btn btn-primary">
+		</div>
+	</form>
+	<div style="color:red">
+    	{{msg}}
+	</div>
+</div>
+{%endblock%}

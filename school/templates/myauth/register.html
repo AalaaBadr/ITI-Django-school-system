@@ -1,0 +1,23 @@
+{%extends 'index.html'%}
+
+{%block title%}
+    Register
+{%endblock%}
+
+
+{%block content%}
+<div class="col-md-12">
+	<form method="post" class="card">
+		{%csrf_token%}
+		<div class="card-header">
+			<div class="card-title">Register</div>
+		</div>
+		<div class="card-body">
+			{{form.as_p}}
+		</div>
+		<div class="card-action">
+			<input type="submit" value="Register" class="btn btn-primary">
+		</div>
+	</form>
+</div>
+{%endblock%}

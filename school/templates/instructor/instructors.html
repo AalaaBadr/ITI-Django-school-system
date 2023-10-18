@@ -1,0 +1,73 @@
+{%extends 'index.html'%}
+
+{%block title%}
+    Instructors
+{%endblock%}
+
+{%block home%}
+     class="nav-item"
+{%endblock%}
+
+{%block instructor%}
+     class="nav-item active"
+{%endblock%}
+
+{%block search%}
+<form class="navbar-left navbar-form nav-search my-2" method="post">
+    {%csrf_token%}
+    <div class="input-group">
+        <input type="text" name="search" value="{{value}}" placeholder="Search ..." class="form-control">
+        <div class="input-group-append">
+            <button type="submit" class="input-group-text">
+                <i class="la la-search search-icon"></i>
+            </button>
+        </div>
+    </div>
+</form>
+{%endblock%}
+
+{%block content%}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Instructors Table</div>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover table-head-bg-primary">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Birthday</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Track</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%for instructor in instructors%}
+                <tr>
+                    <td>{{instructor.id}}</td>
+                    <td>{{instructor.name}}</td>
+                    <td>{{instructor.birth_date}}</td>
+                    <td>{{instructor.salary}}</td>
+                    <td>{{instructor.track.name}}</td>
+                    <td>
+                        <a href="{%url 'update_instructor' instructor.id %}">
+                            <i class="las la-lg la-user-edit mr-3"></i>
+                        </a>
+                        <a href="{%url 'delete_instructor' instructor.id %}">
+                            <i class="las la-lg la-user-slash"></i>
+                        </a>
+                    </td>
+                </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+            <a href="{%url 'add_instructor'%}" class="btn btn-primary">
+                <i class="la la-lg la-user-plus"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{%endblock%}

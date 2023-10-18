@@ -1,0 +1,55 @@
+{%extends 'index.html'%}
+
+{%block title%}
+    Instructors
+{%endblock%}
+
+{%block home%}
+     class="nav-item"
+{%endblock%}
+
+{%block trainee%}
+     class="nav-item active"
+{%endblock%}
+
+{%block content%}
+<div class="col-md-12">
+	<form method="post" class="card">
+		{%csrf_token%}
+		<div class="card-header">
+			<div class="card-title">Update Trainee</div>
+		</div>
+		<div class="card-body">
+			<div class="form-group">
+				<label for="id">Trainee ID</label>
+				<input type="number" class="form-control" id="id" name="id" placeholder="Instructor ID" required value="{{old_data.id}}">
+			</div>
+
+			<div class="form-group">
+				<label for="name">Trainee Name</label>
+				<input type="text" class="form-control" id="name" name="name" placeholder="Instructor Name" value="{{old_data.name}}">
+			</div>
+
+			<div class="form-group">
+				<label for="birth_date">Birth date</label>
+				<input type="date" class="form-control" id="birth_date" name="birth_date" value="{{modified_date}}">
+			</div>
+
+			<div class="form-group">
+				<label for="track">Track ID</label>
+				<select class="form-control" id="track" name="track">
+        		{% for track in tracks%}
+            		{%if track.id == old_data.track.id%}
+                		<option value="{{track.id}}" selected>{{track.name}}</option>
+           	 		{%endif%}
+            			<option value="{{track.id}}">{{track.name}}</option>
+        		{%endfor%}
+    </select>
+			</div>
+		</div>
+		<div class="card-action">
+			<input type="submit" value="submit" class="btn btn-primary">
+		</div>
+	</form>
+</div>
+{%endblock%}
